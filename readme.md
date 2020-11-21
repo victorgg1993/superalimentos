@@ -2,7 +2,7 @@
 
 ## Introducción
 
-Vamos a construir esta aplicación que nos de consejos de nutrición:
+Vamos a construir esta aplicación que nos dé consejos de nutrición:
 
 ![](https://s3-eu-west-1.amazonaws.com/ih-materials/uploads/upload_0e106e84e22155f1d2775e37cd4aa865.gif)
 

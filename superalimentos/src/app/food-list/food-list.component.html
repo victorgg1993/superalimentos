@@ -1,0 +1,41 @@
+<main>
+  <h1>Listado de platos</h1>
+
+  <form>
+    <label>Search:</label>
+    <input (keyup)="true" #inputBuscar/>
+  </form>
+
+  <button>Add new product</button>
+
+  <ul *ngFor="let menjar of comidas | filtrarProductes: inputBuscar.value">
+    <li>
+      <div>
+        <img src="{{ menjar.image }}" alt="" />
+      </div>
+
+      <div>
+        <h1>{{ menjar.name }}</h1>
+
+        <div>
+          <button (click)="afegir(menjar)">+</button>
+          <input type="text" value="{{ menjar.quantity }}" />
+        </div>
+        <p>Kcal: {{ menjar.calories }}</p>
+      </div>
+    </li>
+  </ul>
+</main>
+
+<aside>
+  <h1>Comida de hoy: {{ kcal_totals }}</h1>
+
+  <!-- <ul id="lista_food"></ul> -->
+  <ul *ngFor="let menjar of lista_lateral_comidas">
+    <li>
+      <h1>{{ menjar.name }}</h1>
+      <p>Calorías: {{ menjar.calories }}</p>
+      <p>Unidades: {{ menjar.quantity }}</p>
+    </li>
+  </ul>
+</aside>
