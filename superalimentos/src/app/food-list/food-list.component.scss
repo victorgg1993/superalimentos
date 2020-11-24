@@ -13,6 +13,54 @@
       justify-content: center;
     }
 
+
+    #li_creacion_alimento {
+      border: 1px solid red;
+      display: flex;
+      flex-flow: row;
+      align-items: flex-start;
+
+      width: 100%;
+      div:first-of-type {
+        display: flex;
+        flex-flow: column;
+        justify-content: space-around;
+        align-items: flex-end;
+        padding-right: 1em;
+        width: 20%;
+        height: 100%;
+        border: 1px solid red;
+      }
+
+      div:last-of-type {
+        display: flex;
+        flex-flow: column;
+        width: 50%;
+        height: 100%;
+      }
+
+      input {
+        width: 10em;
+      }
+    }
+
+    #boto_add {
+      width: min-content;
+
+      border-radius: 0.2em;
+      padding: 0.4em 1em;
+
+      border-style: none;
+      background-color: rgb(72, 116, 138);
+
+      color: white;
+      font-weight: 600;
+    }
+    #boto_add:hover {
+      background-color: rgb(104, 152, 177);
+      cursor: pointer;
+    }
+
     form {
       display: flex;
       justify-content: center;
@@ -84,6 +132,7 @@
             }
             button:hover {
               background-color: rgb(104, 152, 177);
+              cursor: pointer;
             }
 
             input {

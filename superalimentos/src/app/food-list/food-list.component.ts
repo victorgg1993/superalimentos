@@ -11,6 +11,12 @@ export class FoodListComponent implements OnInit {
   kcal_totals = 0;
   comidas = foods;
   lista_lateral_comidas = [];
+  creacio_apagat = true;
+
+  inputNom = '';
+  inputCalories = '';
+  inputQuantiat = '';
+  inputImage = '';
 
   constructor() {}
 
@@ -60,5 +66,16 @@ export class FoodListComponent implements OnInit {
         this.lista_lateral_comidas[i].quantity *
         this.lista_lateral_comidas[i].calories;
     }
+  }
+
+  handler_add(nom: string): void {
+    console.log('inputNom: ', nom);
+    //console.log('inputCalories: ', calories);
+    //console.log('inputQuantiat: ', quantitat);
+    //console.log('inputImage: ', imatge);
+  }
+
+  tmp_formulari(): void {
+    console.log('tmp_formulari()');
   }
 }

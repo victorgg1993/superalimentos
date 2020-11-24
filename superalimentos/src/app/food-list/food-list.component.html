@@ -3,10 +3,33 @@
 
   <form>
     <label>Search:</label>
-    <input (keyup)="true" #inputBuscar/>
+    <input (keyup)="(true)" #inputBuscar />
   </form>
 
-  <button>Add new product</button>
+  <button (click)="this.creacio_apagat = !this.creacio_apagat">
+    Add new product
+  </button>
+
+  <ng-container *ngIf="this.creacio_apagat">
+    <div id="li_creacion_alimento">
+      <form (submit)="handler_add(inputNombre.value)">
+        <div>
+          <label>Name: </label>
+          <label>Kcalories: </label>
+          <label>Quantitty: </label>
+          <label>URL image: </label>
+        </div>
+
+        <div>
+          <input #inputNombre (keyup)="(0)" />
+          <input #inputCalories (keyup)="(0)" />
+          <input #inputQuantiat (keyup)="(0)" />
+          <input #inputImage (keyup)="(0)" />
+        </div>
+      </form>
+    </div>
+    <button id="boto_add" (click)="handler_add()">Add</button>
+  </ng-container>
 
   <ul *ngFor="let menjar of comidas | filtrarProductes: inputBuscar.value">
     <li>
