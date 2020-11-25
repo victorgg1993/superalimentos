@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { FoodListComponent } from './food-list/food-list.component';
 
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,8 +16,10 @@ import {MatFormFieldModule} from '@angular/material/form-field';
   ],
   imports: [
     BrowserModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    FormsModule
   ],
+
   providers: [],
   bootstrap: [AppComponent]
 })

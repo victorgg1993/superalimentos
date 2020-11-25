@@ -10,28 +10,31 @@
     Add new product
   </button>
 
-  <ng-container *ngIf="this.creacio_apagat">
-    <div id="li_creacion_alimento">
-      <form (submit)="handler_add(inputNombre.value)">
+  <ng-container #foodForm *ngIf="this.creacio_apagat">
+    <form
+      id="li_creacion_alimento"
+      (submit)="handler_add(menjar.value, calories.value, imatge.value)"
+      #foodForm="ngForm"
+    >
+      <div id="div_formulari">
         <div>
-          <label>Name: </label>
-          <label>Kcalories: </label>
-          <label>Quantitty: </label>
-          <label>URL image: </label>
+          <label>Name:</label>
+          <label>Calories:</label>
+          <label>Image:</label>
         </div>
 
         <div>
-          <input #inputNombre (keyup)="(0)" />
-          <input #inputCalories (keyup)="(0)" />
-          <input #inputQuantiat (keyup)="(0)" />
-          <input #inputImage (keyup)="(0)" />
+          <input name="foodName" #menjar />
+          <input name="foodCalories" #calories />
+          <input name="foodImage" #imatge />
         </div>
-      </form>
-    </div>
-    <button id="boto_add" (click)="handler_add()">Add</button>
+      </div>
+
+      <button id="boto_add" type="submit">Submit</button>
+    </form>
   </ng-container>
 
-  <ul *ngFor="let menjar of comidas | filtrarProductes: inputBuscar.value">
+    <ul *ngFor="let menjar of comidas | filtrarProductes: inputBuscar.value">
     <li>
       <div>
         <img src="{{ menjar.image }}" alt="" />
