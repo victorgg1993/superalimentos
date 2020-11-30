@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import foods from '../foods';
 
 @Component({
@@ -7,20 +7,16 @@ import foods from '../foods';
   styleUrls: ['./food-list.component.scss'],
 })
 export class FoodListComponent implements OnInit {
-  @Input() comidas: Object[];
-  @Output() evento_comida = new EventEmitter<Object[]>();
-
   //
+  comidas = foods;
   kcal_totals = 0;
   lista_lateral_comidas = [];
-  creacio_apagat = true;
+  creacio_actiu = false;
+  plat_buscar;
 
   constructor() {}
 
-  ngOnInit(): void {
-    this.comidas = foods;
-    this.evento_comida.emit(this.comidas);
-  }
+  ngOnInit(): void {}
 
   afegir(plat): void {
     const { ...tmp_plat } = plat; // desestructurar
@@ -75,7 +71,5 @@ export class FoodListComponent implements OnInit {
       image: imatge,
       quantity: 1,
     });
-
-    this.evento_comida.emit(this.comidas);
   }
 }

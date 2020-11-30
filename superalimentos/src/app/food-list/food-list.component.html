@@ -1,20 +1,31 @@
 <main>
   <h1>Listado de platos</h1>
 
-  <form>
-    <label>Search:</label>
-    <input (keyup)="(true)" #inputBuscar />
-  </form>
+  <mat-form-field>
+    <div id="div_formulari">
+      <div>
+        <mat-label class="etiqueta">Search:</mat-label>
+      </div>
 
-  <button (click)="this.creacio_apagat = !this.creacio_apagat">
+      <div>
+        <input matInput class="entrada" type="text" #entrada />
+      </div>
+    </div>
+  </mat-form-field>
+
+  <button
+    mat-button
+    id="boto_add"
+    (click)="this.creacio_actiu = !this.creacio_actiu"
+  >
     Add new product
   </button>
 
-  <ng-container #foodForm *ngIf="this.creacio_apagat">
+  <ng-container #form_menjar *ngIf="this.creacio_actiu">
     <form
       id="li_creacion_alimento"
-      (submit)="handler_add(menjar.value, calories.value, imatge.value)"
-      #foodForm="ngForm"
+      (ngSubmit)="handler_add(menjar.value, calories.value, imatge.value)"
+      #form_menjar="ngForm"
     >
       <div id="div_formulari">
         <div>
@@ -30,11 +41,11 @@
         </div>
       </div>
 
-      <button id="boto_add" type="submit">Submit</button>
+      <button mat-button id="boto_add" type="submit">Submit</button>
     </form>
   </ng-container>
 
-    <ul *ngFor="let menjar of comidas | filtrarProductes: inputBuscar.value">
+  <ul *ngFor="let menjar of comidas  | filtrarProductes: entrada.value">
     <li>
       <div>
         <img src="{{ menjar.image }}" alt="" />
@@ -44,7 +55,7 @@
         <h1>{{ menjar.name }}</h1>
 
         <div>
-          <button (click)="afegir(menjar)">+</button>
+          <button mat-button (click)="afegir(menjar)">+</button>
           <input type="text" value="{{ menjar.quantity }}" />
         </div>
         <p>Kcal: {{ menjar.calories }}</p>
